@@ -61,4 +61,4 @@ def is_active(request, switch):
       <my>html</my>
     {% endif %}
     """
-    return gargoyle.is_active(switch)
+    return gargoyle.is_active(switch, request)
