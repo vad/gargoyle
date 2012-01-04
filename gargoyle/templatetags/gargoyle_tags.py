@@ -50,3 +50,15 @@ class SwitchNode(template.Node):
             return self.nodelist_false.render(context)
 
         return self.nodelist_true.render(context)
+
+
+@register.filter
+def is_active(request, switch):
+    """
+    filter to use gargoyle switches in normal ifs:
+
+    {% if request|is_active:"switchname" and not user.is_anonymous %}
+      <my>html</my>
+    {% endif %}
+    """
+    return gargoyle.is_active(switch)
